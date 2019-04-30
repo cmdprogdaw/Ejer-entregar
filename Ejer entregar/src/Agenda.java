@@ -17,7 +17,7 @@ public class Agenda extends TreeMap<String, String> {
 			switch (estado) {
 			case 0:
 				try {
-					token = s.skip("fin|buscar|\\p{L}+\\s+(\\p{L}+\\s+)*\\p{L}+|\\p{L}+").match().group();
+					token = s.skip("fin|buscar|\\p{L}+(\\s+\\p{L}+)").match().group();
 					if (token.equals("fin")) { 
 						estado = 5;
 					}else if (token.equals("buscar")) 
