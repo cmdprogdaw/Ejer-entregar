@@ -7,7 +7,7 @@ import java.util.Scanner;
 import java.util.TreeMap;
 
 public class Agenda extends TreeMap<String, String> {
-
+	
 	public String Ejecutar (String cmd) {
 		Scanner s = new Scanner(System.in);
 		int estado = 0;
@@ -53,7 +53,7 @@ public class Agenda extends TreeMap<String, String> {
 			case 3:
 				try {
 					token = s.skip("\\d{9}").match().group();
-					agenda.put(nombre, token);
+					put(nombre, token);
 					estado = 5;
 				} catch (NoSuchElementException e) {
 					System.out.println("Se esperaba un telefono");
@@ -63,7 +63,7 @@ public class Agenda extends TreeMap<String, String> {
 			case 4:
 				try {
 					token = s.skip("[a-zA-ZáéíóúÁÉÍÓÚ]+\\s+([a-zA-ZáéíóúÁÉÍÓÚ]+\\s+)*[a-zA-ZáéíóúÁÉÍÓÚ]+|[a-zA-ZáéíóúÁÉÍÓÚ]+").match().group();
-					String telefono = agenda.get(token); 
+					String telefono = get(token); 
 					if (telefono != null) 
 						System.out.println(token + " -> " + telefono);
 					else
